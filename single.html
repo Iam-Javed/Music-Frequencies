@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Astrome Assisgnment</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .rectangle {
+                width: 700px;
+                height: 200px;
+                background-color: rgb(25, 25, 67);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+            }
+            .box1 {
+                width: 150px;
+                height: 180px;
+                background-color: rgb(83, 83, 202);
+                animation: heightAnimation1 2s ease-in-out infinite alternate;
+            }
+            .box2 {
+                width: 150px;
+                height: 180px;
+                background-color: rgb(201, 114, 164);
+                animation: heightAnimation2 2s ease-in-out infinite alternate;
+            }
+            .box3 {
+                width: 150px;
+                height: 180px;
+                background-color: rgb(179, 106, 111);
+                animation: heightAnimation3 2s ease-in-out infinite alternate;
+            }
+            .box4 {
+                width: 150px;
+                height: 180px;
+                background-color: rgb(212, 160, 95);
+                animation: heightAnimation1 2s ease-in-out infinite alternate;
+            }
+            .box5 {
+                width: 150px;
+                height: 180px;
+                background-color: rgb(210, 224, 77);
+                animation: heightAnimation2 2s ease-in-out infinite alternate;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 50px;
+            }
+            .buttons button {
+                margin: 10%;
+                margin-right: 20%;
+                margin-left: 20%;
+                border: none;
+            }
+            .b1{
+                background-color: rgb(69, 123, 69);
+                display:inline-block;
+                color: #fff;
+                padding: 8px 30px;
+                text-decoration: none;
+                border-radius: 1px;
+            }
+            .b2{
+                background-color: rgb(125, 73, 125);
+                display:inline-block;
+                color: #fff;
+                padding: 8px 30px;
+                text-decoration: none;
+                border-radius: 1px;
+            }
+            .b3{
+                background-color: red;
+                display:inline-block;
+                color: #fff;
+                padding: 8px 30px;
+                text-decoration: none;
+                border-radius: 1px;
+            }
+            .buttons button:hover{
+                cursor: pointer;
+            }
+            @keyframes heightAnimation1 {
+                100% {
+                    height: 0;
+                    margin-top: 200px;
+                }
+                80% {
+                    height: 100px;
+                    margin-top: 100px;
+                }
+                50% {
+                    height: 0;
+                    margin-top: 200px;
+                }
+            }
+            @keyframes heightAnimation2 {
+                100% {
+                    height: 0;
+                    margin-top: 200px;
+                }
+                70% {
+                    height: 100px;
+                    margin-top: 100px;
+                }
+                40% {
+                    height: 0;
+                    margin-top: 200px;
+                }
+                
+            }
+            @keyframes heightAnimation3 {
+                100% {
+                    height: 0;
+                    margin-top: 200px;
+                }
+                100% {
+                    height: 100px;
+                    margin-top: 100px;
+                }
+                30% {
+                    height: 0;
+                    margin-top: 200px;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="rectangle">
+                <div class="box1 box"></div>
+                <div class="box2 box"></div>
+                <div class="box3 box"></div>
+                <div class="box4 box"></div>
+                <div class="box5 box"></div>
+            </div>
+            <div class="buttons">
+                <button class="b1" onclick="startAnimation()">Start</button>
+                <button class="b2" onclick="resetAnimation()">Reset</button>
+                <button class="b3" onclick="stopAnimation()">Stop</button>
+              </div>
+        </div>
+        
+        <script>
+            let boxes = document.querySelectorAll(".box1");
+            let animationInterval;
+            function startAnimation() {
+                boxes.forEach((box1) => {
+                    box.classList.add("animate");
+                });
+            }
+            function resetAnimation() {
+                boxes.forEach((box1) => {
+                    box.classList.remove("animate");
+                    void box.offsetWidth;
+                    box.classList.add("animate");
+                });
+                clearInterval(animationInterval);
+                startAnimation();
+            }
+            function stopAnimation() {
+                boxes.forEach((box1) => {
+                    box.classList.remove("animate");
+                });
+                clearInterval(animationInterval);
+            }
+            startAnimation();
+        </script>
+
+    </body>
+</html>
